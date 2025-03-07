@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import api from '../utils/api'
 import Card from "./Card";
 import AddPlacePopup from "./AddPlacePopup";
-import AddPlaceButton from "./AddPlaceButton";
 import ImagePopup from "./ImagePopup";
-
 
 import '../blocks/places/places.css';
 import '../blocks/card/card.css';
@@ -72,6 +70,9 @@ function CardList() {
 
   return (
     <>
+      <section className="profile page__section">
+      <button className="profile__add-button" type="button" onClick={onClickAddButton}></button>
+      </section>
       <ul className="places__list">
         {cards.map((card) => (
           <Card

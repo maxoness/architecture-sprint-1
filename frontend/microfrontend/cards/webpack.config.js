@@ -43,10 +43,8 @@ module.exports = {
       name: "cards",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {
-        './AddPlaceButton': './src/components/AddPlaceButton.js',
-        './CardList': './src/components/CardList.js'
-      },
+      exposes: {},
+        './CardList': './src/components/CardList.js',
       shared: {
         ...deps,
         react: {
