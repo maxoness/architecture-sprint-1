@@ -6,7 +6,6 @@ import ImagePopup from "./ImagePopup";
 
 import '../blocks/places/places.css';
 import '../blocks/card/card.css';
-import '../blocks/popup/popup.css';
 
 function CardList() {
   const [currentUser, setCurrentUser] = useState({});

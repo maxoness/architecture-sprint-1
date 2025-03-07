@@ -10,12 +10,12 @@ import "./index.css";
 
 function App() {
 
+  const history = useHistory()
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const onCloseAllPopupsEvent = new Event("onCloseAllPopups", {
     composed: true,
   });
-  const history = useHistory();
   const [email, setEmail] = useState('')
 
   const onSignOut = useCallback(
@@ -46,7 +46,7 @@ function App() {
           setCurrentUser={setCurrentUser}
         />
         <Route path="/signup">
-          <Register onRegister={history} />
+          <Register history={history} />
         </Route>
         <Route path="/signin">
           <Suspense fallback={<div>Loading...</div>}>

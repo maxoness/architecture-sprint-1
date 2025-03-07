@@ -1,6 +1,7 @@
 import React from 'react';
 import InfoTooltip from "./InfoTooltip";
 import "../blocks/auth-form/auth-form.css";
+import * as auth from "../utils/auth";
 
 function Register({ history }) {
   const [email, setEmail] = React.useState("");
@@ -13,10 +14,12 @@ function Register({ history }) {
       .register(email, password)
       .then((res) => {
         setTooltipStatus("success");
+        console.log("register success");
         setIsInfoToolTipOpen(true);
         history.push("/signin");
       })
       .catch((err) => {
+        console.error(err);
         setTooltipStatus("fail");
         setIsInfoToolTipOpen(true);
       });

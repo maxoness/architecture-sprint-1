@@ -43,7 +43,9 @@ module.exports = {
       name: "user",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        './Profile': './src/components/Profile.js',
+      },
       shared: {
         ...deps,
         react: {

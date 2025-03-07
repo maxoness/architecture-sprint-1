@@ -35,6 +35,13 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.svg$/,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
+        }
+      },
     ],
   },
 
@@ -42,7 +49,11 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "host",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        'auth': 'auth@http://localhost:3005/remoteEntry.js',
+        'user': 'user@http://localhost:3002/remoteEntry.js',
+        'cards': 'cards@http://localhost:3004/remoteEntry.js',
+      },
       exposes: {},
       shared: {
         ...deps,
