@@ -209,3 +209,47 @@
 │   │   ├── index.css
 │   ├── webpack.config.js
 │   └── package.json
+├── cards
+│   ├── src
+│   │   ├── blocks
+│   │   │   ├── popup
+│   │   │   ├── profile
+│   │   ├── components
+│   │   │   ├── EditAvatarPopup.js
+│   │   │   ├── EditProfilePopup.js
+│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup - унести в shared МФ
+│   │   │   ├── Profile.js          // компонента данных пользователя с аватар, перенесенная из кода Main.ts, смешанного с кнопкой добавления карточки
+│   │   ├── images
+│   │   │   ├── add-icon.svg
+│   │   │   ├── close.svg
+│   │   │   ├── edit-icon.svg
+│   │   ├── utils
+│   │   │   ├── api.js
+│   │   ├── index.css
+│   │   └── vendor
+│   │   │   ├── <...>               // шрифты
+│   │   ├── index.css
+│   ├── webpack.config.js
+│   └── package.json
+├── host
+│   ├── src
+│   │   ├── blocks
+│   │   │   ├── popup
+│   │   │   ├── profile
+│   │   ├── components
+│   │   │   ├── EditAvatarPopup.js
+│   │   │   ├── EditProfilePopup.js
+│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup - унести в shared МФ
+│   │   │   ├── Profile.js          // компонента данных пользователя с аватар, перенесенная из кода Main.ts, смешанного с кнопкой добавления карточки
+│   │   ├── images
+│   │   │   ├── add-icon.svg
+│   │   │   ├── close.svg
+│   │   │   ├── edit-icon.svg
+│   │   ├── utils
+│   │   │   ├── api.js
+│   │   ├── index.css
+│   │   └── vendor
+│   │   │   ├── <...>               // шрифты
+│   │   ├── index.css
+│   ├── webpack.config.js
+│   └── package.json
