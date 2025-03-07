@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import api from '../utils/api'
-import events from '../utils/events'
 import Card from "./Card";
 import AddPlacePopup from "./AddPlacePopup";
 import ImagePopup from "./ImagePopup";
-import PopupWithForm from "./PopupWithForm";
 
 import '../blocks/places/places.css';
 import '../blocks/card/card.css';
@@ -66,23 +64,14 @@ function CardList() {
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
-    const listener = () => setIsAddPlacePopupOpen(true)
-    document.addEventListener(events.ADD_PLACE_EVENT, listener);
-    return () => {
-      document.removeEventListener(events.ADD_PLACE_EVENT, listener);
-    }
-  }, []);
-
-  function onClick() {
-    const event = new CustomEvent(events.ADD_PLACE_EVENT);
-    document.dispatchEvent(event);
+  function onClickAddButton() {
+    setIsAddPlacePopupOpen(true)
   }
 
   return (
     <>
       <section className="profile page__section">
-      <button className="profile__add-button" type="button" onClick={onClick}></button>
+      <button className="profile__add-button" type="button" onClick={onClickAddButton}></button>
       </section>
       <ul className="places__list">
         {cards.map((card) => (
@@ -101,7 +90,6 @@ function CardList() {
         onAddPlace={handleAddPlaceSubmit}
         onClose={closePopup}
       />
-      <PopupWithForm title="Вы уверены?" name="remove-card" buttonText="Да" />
       <ImagePopup card={selectedCard} onClose={closePopup} />
     </>
   )

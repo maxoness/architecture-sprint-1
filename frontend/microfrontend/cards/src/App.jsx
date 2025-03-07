@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, useHistory, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import CardList from './components/CardList';
 import api from "./utils/api.js";
 import "./index.css";

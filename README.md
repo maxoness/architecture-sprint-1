@@ -184,11 +184,28 @@
 │   └── package.json
 ├── cards
 │   ├── src
-│   │   ├── components
-│   │   ├── utils
-│   │   ├── images
-│   │   ├── index.css
 │   │   ├── blocks
+│   │   │   ├── card
+│   │   │   ├── places
+│   │   │   ├── popup
+│   │   │   ├── profile             // из-за стиля для кнопки добавления карточки add-button. Развязать стили
+│   │   ├── components
+│   │   │   ├── AddPlacePopup.js
+│   │   │   ├── Card.js
+│   │   │   ├── CardList.js         // компонента галереи фотокарточек, перенесенная из кода Main.ts, смешанного с профилем пользователя
+│   │   │   ├── ImagePopup.js
+│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup - унести в shared МФ
+│   │   ├── images
+│   │   │   ├── add-icon.svg
+│   │   │   ├── close.svg
+│   │   │   ├── delete-icon.svg
+│   │   │   ├── like-active.svg
+│   │   │   ├── like-inactive.svg
+│   │   ├── utils
+│   │   │   ├── api.js              // удалить метод getAppInfo, разбив на отдельные вызовы к Users и Cards
+│   │   ├── index.css
 │   │   └── vendor
+│   │   │   ├── <...>               // шрифты
+│   │   ├── index.css
 │   ├── webpack.config.js
 │   └── package.json
