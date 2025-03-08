@@ -253,3 +253,15 @@
 │   │   ├── index.css
 │   ├── webpack.config.js
 │   └── package.json
+
+3. Рабочие приложения микрофронтов.
+... мой первый проект не только на react, но и в фронтах :)
+
+Как запустить:
+последовательно выполнить "npm install -g create-mf-app@1.0.8" в терминалах внутри папок:
+- frontend\microfrontend\auth
+- frontend\microfrontend\cards
+- frontend\microfrontend\user
+- frontend\microfrontend\host
+
+Затем в такой же последовательности выполнить в каждой "npm start"
