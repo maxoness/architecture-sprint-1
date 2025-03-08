@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useCallback, useState, useEffect } from "react";
+import { CurrentUserContext } from "./contexts/CurrentUserContext";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, useHistory, Switch } from "react-router-dom";
 import Main from "./components/Main";
@@ -72,8 +73,9 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className="page__content">
         <Header email={email} onSignOut={onSignOut} />
         <Suspense fallback='fail'>
@@ -99,7 +101,7 @@ function App() {
           </Switch>
         </Suspense>
       </div>
-    </>
+    </CurrentUserContext.Provider>
   );
 }
 

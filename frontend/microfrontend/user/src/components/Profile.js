@@ -4,7 +4,6 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import api from "../utils/api";
 import '../blocks/profile/profile.css';
 
-
 function Profile () {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
