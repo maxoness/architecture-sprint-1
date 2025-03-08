@@ -10,19 +10,22 @@ function Register({ history }) {
   const [tooltipStatus, setTooltipStatus] = React.useState("");
 
   function onRegister({ email, password }) {
+    console.log("---- Register.OnRegister enter");
     auth
       .register(email, password)
       .then((res) => {
         setTooltipStatus("success");
-        console.log("register success");
         setIsInfoToolTipOpen(true);
-        history.push("/signin");
       })
       .catch((err) => {
-        console.error(err);
         setTooltipStatus("fail");
         setIsInfoToolTipOpen(true);
       });
+  }
+
+  function handleTooltipClose(e) {
+    e.preventDefault();
+    if (tooltipStatus == "success") history.push("/signin");;
   }
 
   function handleSubmit(e) {
@@ -62,7 +65,7 @@ function Register({ history }) {
           </form>
         </div>
         <InfoTooltip
-          onClose={closeAllPopups}
+          onClose={handleTooltipClose}
           onCloseAllPopupsEvent={closeAllPopups}
           isOpen={isInfoToolTipOpen}
           status={tooltipStatus}

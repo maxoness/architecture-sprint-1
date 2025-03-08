@@ -13,8 +13,6 @@ const Profile = lazy(() => import('user/Profile').catch(() => {
 function Main({isLoggedIn, currentUser, setCurrentUser}) {
   return (
     <>
-    {console.log("---- Profile.Main currentUser in return: " + currentUser + currentUser.name)}
-    {console.log("---- Profile.Main isLoggedIn in return: " + isLoggedIn)}
     <main className="content">
       <section className="profile page__section">
         {

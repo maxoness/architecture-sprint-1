@@ -28,14 +28,6 @@ function App() {
   return (
     <div className="page__content">
       <Header email={email} onSignOut={onSignOut} />
-
-      <div className="container">
-        <div>Name: auth</div>
-        <div>Framework: react</div>
-        <div>Language: JavaScript</div>
-        <div>CSS: Empty CSS</div>
-      </div>
-
       <Switch>
         <ProtectedRoute
           exact

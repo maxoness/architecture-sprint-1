@@ -54,16 +54,20 @@ function CardList() {
   }
 
   useEffect(() => {
-    console.log("CardList currentUser: " + currentUser);
-    console.log("CardList currentUser: " + currentUser.name);
+    // clean up controller
+    let isSubscribed = true;
 
     api
       .getAppInfo()
       .then(([cards, userData]) => {
-        setCurrentUser(userData);
-        setCards(cards)
+        if (isSubscribed) {
+          setCurrentUser(userData);
+          setCards(cards)
+        }
       })
       .catch((err) => console.log(err));
+
+    return () => (isSubscribed = false)
   }, []);
 
   function onClickAddButton() {
@@ -73,20 +77,20 @@ function CardList() {
   return (
     <>
       <section className="profile page__section">
-      <button className="profile__add-button" type="button" onClick={onClickAddButton}></button>
+        <button className="profile__add-button" type="button" onClick={onClickAddButton}></button>
       </section>
       <ul className="places__list">
         {
           cards.map((card) => (
-          <Card
-            key={card._id}
-            card={card}
-            currentUser={currentUser}
-            onCardClick={handleCardClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-          />
-        ))}
+            <Card
+              key={card._id}
+              card={card}
+              currentUser={currentUser}
+              onCardClick={handleCardClick}
+              onCardLike={handleCardLike}
+              onCardDelete={handleCardDelete}
+            />
+          ))}
       </ul>
       <AddPlacePopup
         isOpen={isAddPlacePopupOpen}

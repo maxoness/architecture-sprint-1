@@ -18,9 +18,15 @@ function App() {
   });
   const history = useHistory();
   const [email, setEmail] = useState('')
+
   const onSignOut = useCallback(
     () => {
-      setIsLoggedIn(null)
+      localStorage.removeItem("jwt");
+      setIsLoggedIn(null);
+      setCards(null);
+      setCurrentUser(null);
+      console.log("Bye!")
+      history.push("/signin");
     },
     []
   )
@@ -55,7 +61,6 @@ function App() {
           setEmail(res.data.email);
           setIsLoggedIn(true);
           history.push("/");
-          console.log("-- Host App.jsx: useEffect1.isLoggedIn: " + isLoggedIn);
         })
         .catch((err) => {
           localStorage.removeItem("jwt");
@@ -88,7 +93,7 @@ function App() {
   }, []);
 
   */
- 
+
   return (
     <>
       <div className="page__content">

@@ -14,9 +14,6 @@ function Signout ({history, activate, onSignout}){
   useEffect(
     () => {
       if (!activate) return
-
-      console.log('Singout: signout')
-
       signout()
     },
     [activate, signout]
