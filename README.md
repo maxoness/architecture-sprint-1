@@ -164,19 +164,17 @@
 │   │   │   ├── auth-form
 │   │   │   ├── popup
 │   │   ├── components
+│   │   │   ├── CheckToken.js       // в дальнейшем доработать и валидацию токена делать через этот компонент
 │   │   │   ├── InfoTooltip.js      // заточен под внутреннее использование при авторизации/регистрации
 │   │   │   ├── Login.js
 │   │   │   ├── Register.js
-│   │   │   ├── CheckToken.js
 │   │   │   ├── SignOut.js          // для полноты бизнес-функции работы с авторизацией пользователя
-│   │   │   ├── Header.js           // удалить. Для отладки микрофронта standalone
-│   │   │   ├── ProtectedRoute.js   // удалить. Для отладки микрофронта standalone
 │   │   ├── images                  // для InfoTooltip.js
+│   │   │   ├── close.svg
 │   │   │   ├── error-icon.svg
 │   │   │   ├── success-icon.svg
 │   │   ├── utils
 │   │   │   ├── auth.js
-│   │   ├── index.css
 │   │   └── vendor
 │   │   │   ├── <...>               // шрифты
 │   │   ├── index.css
@@ -188,13 +186,12 @@
 │   │   │   ├── card
 │   │   │   ├── places
 │   │   │   ├── popup
-│   │   │   ├── profile             // из-за стиля для кнопки добавления карточки add-button. Развязать стили
 │   │   ├── components
 │   │   │   ├── AddPlacePopup.js
 │   │   │   ├── Card.js
-│   │   │   ├── CardList.js         // компонента галереи фотокарточек, перенесенная из кода Main.ts, смешанного с профилем пользователя
+│   │   │   ├── CardList.js         // компонента галереи фотокарточек, перенесенная из кода Main.ts, смешанного с профилем пользователя. AddButton для добавления карты вынесена в галерею из профиля для доменного разделения в т.ч. дизайна
 │   │   │   ├── ImagePopup.js
-│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup - унести в shared МФ
+│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup. В будущему можно унести в shared
 │   │   ├── images
 │   │   │   ├── add-icon.svg
 │   │   │   ├── close.svg
@@ -209,7 +206,7 @@
 │   │   ├── index.css
 │   ├── webpack.config.js
 │   └── package.json
-├── cards
+├── user
 │   ├── src
 │   │   ├── blocks
 │   │   │   ├── popup
@@ -217,7 +214,7 @@
 │   │   ├── components
 │   │   │   ├── EditAvatarPopup.js
 │   │   │   ├── EditProfilePopup.js
-│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup - унести в shared МФ
+│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup. В будущем унести в shared
 │   │   │   ├── Profile.js          // компонента данных пользователя с аватар, перенесенная из кода Main.ts, смешанного с кнопкой добавления карточки
 │   │   ├── images
 │   │   │   ├── add-icon.svg
@@ -234,34 +231,52 @@
 ├── host
 │   ├── src
 │   │   ├── blocks
-│   │   │   ├── popup
-│   │   │   ├── profile
+│   │   │   ├── content
+│   │   │   ├── footer
+│   │   │   ├── header
+│   │   │   ├── page
 │   │   ├── components
-│   │   │   ├── EditAvatarPopup.js
-│   │   │   ├── EditProfilePopup.js
-│   │   │   ├── PopupWithForm.js    // общая форма, расширяется AddPlacePopup - унести в shared МФ
-│   │   │   ├── Profile.js          // компонента данных пользователя с аватар, перенесенная из кода Main.ts, смешанного с кнопкой добавления карточки
+│   │   │   ├── Footer.js
+│   │   │   ├── Header.js
+│   │   │   ├── Maint.js    
+│   │   │   ├── ProtectedRoute.js 
+│   │   ├── contexts
+│   │   │   ├── CurrentUserContext  // в будущем заюзать для целевого взаимодействия
 │   │   ├── images
-│   │   │   ├── add-icon.svg
 │   │   │   ├── close.svg
-│   │   │   ├── edit-icon.svg
+│   │   │   ├── logo.svg
 │   │   ├── utils
-│   │   │   ├── api.js
+│   │   │   ├── api.js              // метод получения текущего пользователя
+│   │   │   ├── auth.js             // метод валидации токена. В будуще переписать на использование компоненты Auth/CheckToken
 │   │   ├── index.css
 │   │   └── vendor
 │   │   │   ├── <...>               // шрифты
 │   │   ├── index.css
 │   ├── webpack.config.js
 │   └── package.json
+```
 
-3. Рабочие приложения микрофронтов.
-... мой первый проект не только на react, но и в фронтах :)
+# Задание 1. Уровень 3. Разделение проекта "Mesto" на несколько микрофронтендов.  Рабочие приложения микрофронтов.
 
-Как запустить:
-последовательно выполнить "npm install -g create-mf-app@1.0.8" в терминалах внутри папок:
+... мой первый проект в фронтэнде ...
+
+## Как запустить
+
+последовательно выполнить 
+
+> npm install -g create-mf-app@1.0.8
+
+в терминалах внутри папок:
 - frontend\microfrontend\auth
 - frontend\microfrontend\cards
 - frontend\microfrontend\user
 - frontend\microfrontend\host
 
-Затем в такой же последовательности выполнить в каждой "npm start"
+Затем в такой же последовательности выполнить в каждой папке
+> npm start
+
+## Результат запуска
+
+Запустятся приложения host, users, cards и auth на портах 3000, 3002, 3004, 3005 соответственно
+
+# Задание 2. Планирование разделения микросервисов

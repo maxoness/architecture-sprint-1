@@ -3,6 +3,7 @@
 @import url('./blocks/profile/profile.css');
 @import url('./blocks/popup/popup.css');
 @import url('./blocks/popup/_is-opened/popup_is-opened.css');
+@import url('./blocks/profile/__add-button/profile__add-button.css');
 
 body {
     background-color: black;

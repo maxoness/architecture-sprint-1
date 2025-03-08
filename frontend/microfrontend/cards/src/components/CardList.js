@@ -76,8 +76,8 @@ function CardList() {
 
   return (
     <>
-      <section className="profile page__section">
-        <button className="profile__add-button" type="button" onClick={onClickAddButton}></button>
+      <section className="add-button page__section">
+        <button className="places__add-button" type="button" onClick={onClickAddButton}></button>
       </section>
       <ul className="places__list">
         {

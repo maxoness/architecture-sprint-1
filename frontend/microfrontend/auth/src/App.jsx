@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, useHistory, Switch } from "react-router-dom";
 import Login from './components/Login';
 import Register from './components/Register';
-import Header from './components/Header';
-import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./index.css";
 
@@ -27,16 +25,7 @@ function App() {
 
   return (
     <div className="page__content">
-      <Header email={email} onSignOut={onSignOut} />
       <Switch>
-        <ProtectedRoute
-          exact
-          path="/"
-          loggedIn={isLoggedIn}
-          onCloseAllPopupsEvent={onCloseAllPopupsEvent}
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser}
-        />
         <Route path="/signup">
           <Register history={history} />
         </Route>

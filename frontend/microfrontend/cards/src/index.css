@@ -4,7 +4,6 @@
 @import url('./blocks/card/card.css');
 @import url('./blocks/places/places.css');
 @import url('./blocks/card/card.css');
-@import url('./blocks/profile/__add-button/profile__add-button.css');
 
 body {
     background-color: black;
