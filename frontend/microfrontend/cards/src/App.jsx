@@ -15,14 +15,12 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [cards, setCards] = React.useState([]);
 
-  // Запрос к API за информацией о пользователе и массиве карточек выполняется единожды, при монтировании.
+  // Запрос к API за информацией о пользователе при монтировании.
   React.useEffect(() => {
     api
-      .getAppInfo()
-      .then(([cardData, userData]) => {
+      .getUserInfo()
+      .then((userData) => {
         setCurrentUser(userData);
-        setCards(cardData);
-
       })
       .catch((err) => console.log(err));
   }, []);
@@ -36,7 +34,7 @@ function App() {
         <div>CSS: Empty CSS</div>
       </div>
       <section className="places page__section">
-        <CardList />
+        <CardList currentUser={currentUser} />
       </section>
     </>
   );

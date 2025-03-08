@@ -8,10 +8,10 @@ import '../blocks/places/places.css';
 import '../blocks/card/card.css';
 
 function CardList() {
-  const [currentUser, setCurrentUser] = useState({});
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [cards, setCards] = useState([]);
+  const [currentUser, setCurrentUser] = React.useState({});
 
   function closePopup() {
     setSelectedCard(null)
@@ -54,6 +54,9 @@ function CardList() {
   }
 
   useEffect(() => {
+    console.log("CardList currentUser: " + currentUser);
+    console.log("CardList currentUser: " + currentUser.name);
+
     api
       .getAppInfo()
       .then(([cards, userData]) => {
@@ -73,7 +76,8 @@ function CardList() {
       <button className="profile__add-button" type="button" onClick={onClickAddButton}></button>
       </section>
       <ul className="places__list">
-        {cards.map((card) => (
+        {
+          cards.map((card) => (
           <Card
             key={card._id}
             card={card}

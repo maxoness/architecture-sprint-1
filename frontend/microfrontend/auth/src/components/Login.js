@@ -25,6 +25,8 @@ function Login({ history, onCloseAllPopupsEvent, setIsLoggedIn }) {
       .then((res) => {
         setTooltipStatus("success");
         setIsInfoToolTipOpen(false);
+        console.log('onLogin: setIsLoggedIn: ');
+        console.log(setIsLoggedIn)
         setIsLoggedIn(true);
         setEmail(email);
         console.log('onLogin: succ 5')

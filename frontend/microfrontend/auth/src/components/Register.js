@@ -38,10 +38,6 @@ function Register({ history }) {
     setIsInfoToolTipOpen(false);
   }
 
-  function onSignIn() {
-    history.push("/signin");
-  }
-
   return (
     <>
         <div className="auth-form">

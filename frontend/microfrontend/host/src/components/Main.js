@@ -1,10 +1,5 @@
 import React, { lazy } from 'react';
 
-const AddPlaceButton = lazy(() => import('cards/AddPlaceButton').catch(() => {
-    return {default: () => <div className='error'>Component is not available!</div>};
-  })
-);
-
 const CardList = lazy(() => import('cards/CardList').catch(() => {
     return {default: () => <div className='error'>Component is not available!</div>};
   })
@@ -15,18 +10,25 @@ const Profile = lazy(() => import('user/Profile').catch(() => {
   })
 );
 
-function Main({ loggedIn }) {
+function Main({isLoggedIn, currentUser, setCurrentUser}) {
   return (
+    <>
+    {console.log("---- Profile.Main currentUser in return: " + currentUser + currentUser.name)}
+    {console.log("---- Profile.Main isLoggedIn in return: " + isLoggedIn)}
     <main className="content">
       <section className="profile page__section">
-        {loggedIn && (
-          <Profile/>
-        )}
+        {
+          isLoggedIn && (
+          <Profile currentUser={currentUser} isLoggedIn={isLoggedIn} setCurrentUser={setCurrentUser} />
+    )}
       </section>
       <section className="places page__section">
+        {isLoggedIn && (
         <CardList />
+        )}
       </section>
     </main>
+    </>
   );
 }
 
