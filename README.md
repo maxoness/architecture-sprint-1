@@ -264,7 +264,7 @@
 
 последовательно выполнить 
 
-> npm install -g create-mf-app@1.0.8
+> npm install
 
 в терминалах внутри папок:
 - frontend\microfrontend\auth
