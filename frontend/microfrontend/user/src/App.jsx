@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <div>Name: cards</div>
+        <div>Name: user</div>
         <div>Framework: react</div>
         <div>Language: JavaScript</div>
         <div>CSS: Empty CSS</div>
